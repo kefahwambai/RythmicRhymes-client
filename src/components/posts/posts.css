@@ -4,3 +4,10 @@
     flex-wrap: wrap;
     margin: 20px;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .posts {
+      margin: 10px; /* Adjust margin for smaller screens */
+    }
+  }
