@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./topbar.css";
 
 export default function Topbar() {
-  const user = true;
+  
+  const [user, setUser] = useState('');
+
   return (
     <div className="top">
       <div className="topLeft">

@@ -5,6 +5,7 @@ import Register from "./pages/register/Register";
 import Settings from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
+import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           {currentUser ? <Settings /> : <Login />}
         </Route>
       </Switch>
+      <Footer/>      
     </Router>
   );
 }

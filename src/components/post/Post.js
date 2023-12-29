@@ -10,18 +10,7 @@ export default function Post({img}) {
         alt=""
       />
       <div className="postInfo">
-        <div className="postCats">
-          <span className="postCat">
-            <Link className="link" to="/posts?cat=Music">
-              Music
-            </Link>
-          </span>
-          <span className="postCat">
-            <Link className="link" to="/posts?cat=Music">
-              Life
-            </Link>
-          </span>
-        </div>
+      
         <span className="postTitle">
           <Link to="/post/abc" className="link">
             Lorem ipsum dolor sit amet
