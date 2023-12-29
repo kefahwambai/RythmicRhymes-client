@@ -42,7 +42,7 @@ export default function Topbar() {
           </Link>
         ) : (
           <ul className="topList">
-            <li className="topListItem">
+            {/* <li className="topListItem">
               <Link className="link" to="/login">
                 LOGIN
               </Link>
@@ -51,7 +51,7 @@ export default function Topbar() {
               <Link className="link" to="/register">
                 REGISTER
               </Link>
-            </li>
+            </li> */}
           </ul>
         )}
         <i className="topSearchIcon fas fa-search"></i>

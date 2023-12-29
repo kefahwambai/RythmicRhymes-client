@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "./post.css";
 
 export default function Post({img}) {
+
+  
   return (
     <div className="post">
       <img
@@ -20,6 +22,7 @@ export default function Post({img}) {
         <span className="postDate">1 hour ago</span>
       </div>
       <p className="postDesc">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
         officia architecto deserunt deleniti? Labore ipsum aspernatur magnam
         fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
