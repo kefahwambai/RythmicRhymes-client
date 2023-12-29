@@ -7,9 +7,10 @@ import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
-  const currentUser = true;
+  const [currentUser, setCurrentUser] = useState('');
   return (
     <Router>
       <Topbar />
