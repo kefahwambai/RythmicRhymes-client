@@ -52,7 +52,7 @@
   position: absolute;
   top: 60px;
   right: 20px;
-  background-color: teal;
+  background-color: rgb(240, 246, 246);
   cursor: pointer;
   padding: 10px;
   border: none;
@@ -76,6 +76,7 @@
 
   .loginButton,
   .loginRegisterButton {
-    padding: 8px; /* Adjusted padding for smaller screens */
+    padding: 8px;
+   
   }
 }

@@ -1,33 +1,37 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./post.css";
 
-export default function Post({img}) {
+export default function Post() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  
+  useEffect(() => {
+    fetch("http://localhost:3000/posts")
+      .then((res) => res.json())
+      .then((posts) => {
+          console.log(posts)
+        setPosts(posts);
+      });
+  }, []);
+
   return (
-    <div className="post">
-      <img
-        className="postImg"
-        src={img}
-        alt=""
-      />
-      <div className="postInfo">
-      
-        <span className="postTitle">
-          <Link to="/post/abc" className="link">
-            Lorem ipsum dolor sit amet
-          </Link>
-        </span>
-        <hr />
-        <span className="postDate">1 hour ago</span>
-      </div>
-      <p className="postDesc">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        officia architecto deserunt deleniti? Labore ipsum aspernatur magnam
-        fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
-        atque, exercitationem quibusdam, reiciendis odio laboriosam?
-      </p>
+    <div>
+      {posts.map((post) => (
+        <div key={post.id} className="post">
+          <img className="postImg" src={post.image} alt="" />
+          <div className="postInfo">
+            <span className="postTitle">
+              <Link to={`/posts/${post.id}`} className="link">
+                {post.title}
+              </Link>
+            </span>
+            <hr />
+            <span className="postDate">{post.datetime}</span>
+          </div>
+          <p className="postDesc">{post.description}</p>
+        </div>
+      ))}
     </div>
   );
 }

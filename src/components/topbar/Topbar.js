@@ -1,15 +1,37 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./topbar.css";
 
-export default function Topbar() {
+export default function Topbar({user, setUser}) {
+  const navigate = useNavigate();
+  const [message, setMessage] = useState('')
+
+
+  function handleLogout() {
+    fetch('http://localhost:3000/logout', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+     }).then((r) => {
+        if (r.ok) {
+          setUser(null);
+          setMessage('User Logged Out!');
+          setTimeout(() => {
+            navigate('/');
+          }, 1234);          
+        }
+      });
+    }
+
   
-  const [user, setUser] = useState('');
+  
 
   return (
     <div className="top">
-      <div className="topLeft">
-    
+      <div className="topLeft">    
       </div>
       <div className="topCenter">
         <ul className="topList">
@@ -25,7 +47,7 @@ export default function Topbar() {
               WRITE
             </Link>
           </li>
-          {user && <li className="topListItem">LOGOUT</li>}
+          {user && <li className="topListItem" onClick={handleLogout}>LOGOUT</li>}
         </ul>
       </div>
       <div className="topRight">
@@ -39,7 +61,7 @@ export default function Topbar() {
           </Link>
         ) : (
           <ul className="topList">
-            {/* <li className="topListItem">
+            <li className="topListItem">
               <Link className="link" to="/login">
                 LOGIN
               </Link>
@@ -48,7 +70,7 @@ export default function Topbar() {
               <Link className="link" to="/register">
                 REGISTER
               </Link>
-            </li> */}
+            </li>
           </ul>
         )}
         <i className="topSearchIcon fas fa-search"></i>
