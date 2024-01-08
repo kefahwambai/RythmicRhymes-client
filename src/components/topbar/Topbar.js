@@ -5,7 +5,27 @@ import "./topbar.css";
 
 export default function Topbar({user, setUser}) {
   const navigate = useNavigate();
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('');
+  const [expand, updateExpanded] = useState(false);
+  const [navColour, updateNavbar] = useState(false);
+
+  const topBar = document.querySelector('.top');
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollTop = window.scrollY;
+
+    if (currentScrollTop > lastScrollTop) {
+      
+      topBar.classList.remove('blur');
+    } else {
+     
+      topBar.classList.add('blur');
+    }
+
+    lastScrollTop = currentScrollTop;
+  });
+
 
 
   function handleLogout() {
@@ -31,7 +51,7 @@ export default function Topbar({user, setUser}) {
   
 
   return (
-    <div className="top">
+    <div expanded={expand}  fixed="top"  expand="md" className={navColour ? "sticky" : "top"}>
       <div className="topLeft">    
       </div>
       <div className="topCenter">
