@@ -1,3 +1,35 @@
+.post-section {
+  padding-top: 150px !important;
+}
+
+.post-card {   
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+  padding-left: 28px !important;
+  padding-right: 25px !important;   
+}
+
+.img {
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  width: 100%; 
+  max-width: 20rem; 
+  height: auto; 
+}
+
+.post-card-views {
+  box-shadow: 0 4px 3px 1px rgba(1, 0, 0, 0.661) !important;
+  color: rgb(156, 22, 22) !important;
+  background-color: transparent !important;
+  opacity: 0.9 !important;
+  width: 100%;
+  border-radius: 7px;
+  margin-bottom: 2rem;
+
+}
+
+
+
 .post {
   width: 385px;
   margin: 0px 25px 40px 25px;
@@ -52,7 +84,6 @@
   font-size: 14px;
   line-height: 24px;
   color: #444444;
-  margin-top: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -60,14 +91,14 @@
   -webkit-box-orient: vertical;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .post {
-    width: 100%; /* Adjusted to take the full width of the container */
+    width: 100%;
     margin: 0 15px 20px 15px;
   }
 
   .postImg {
-    height: auto; /* Allow the image to adjust its height */
+    height: auto; 
   }
 }

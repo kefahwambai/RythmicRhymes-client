@@ -1,93 +1,62 @@
+/* write.css */
+
 .write {
-  padding-top: 50px;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
 }
 
 .writeImg {
-  margin-left: 0; /* Adjusted for smaller screens */
-  width: 100%; /* Full width for smaller screens */
-  height: auto; /* Allow the image to adjust its height */
-  border-radius: 10px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .writeForm {
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .writeFormGroup {
-  margin-left: 0; /* Adjusted for smaller screens */
-  display: flex;
-  flex-direction: column; /* Adjusted for smaller screens */
-  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .writeIcon {
-  width: 25px;
-  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 20px;
-  border: 1px solid;
-  border-radius: 50%;
-  color: rgb(129, 125, 125);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #333;
   cursor: pointer;
-  margin-bottom: 10px; /* Adjusted margin for smaller screens */
 }
 
-.writeInput {
-  font-size: 20px; /* Adjusted font size for smaller screens */
-  border: none;
-  padding: 15px; /* Adjusted padding for smaller screens */
-  width: 100%; /* Full width for smaller screens */
+#fileInput {
+  display: none;
 }
 
-.writeInput::placeholder {
-  color: rgb(189, 185, 185);
-  font-weight: 400;
-}
-
-.writeInput:focus {
-  outline-style: none;
-}
-
+.writeInput,
 .writeText {
-  width: 100%; /* Full width for smaller screens */
-  height: 100vh;
-  font-family: inherit;
-  font-size: 16px; /* Adjusted font size for smaller screens */
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .writeSubmit {
-  position: absolute;
-  top: 20px;
-  right: 20px; /* Adjusted right position for smaller screens */
+  background-color: #4caf50;
   color: white;
-  background-color: teal;
   padding: 10px;
   border: none;
-  border-radius: 10px;
-  font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .writeImg {
-    margin-left: 0; /* Adjusted for smaller screens */
-  }
-
-  .writeIcon {
-    margin-bottom: 0; /* Reset margin for smaller screens */
-  }
-
-  .writeText {
-    font-size: 14px; /* Adjusted font size for smaller screens */
-  }
-
-  .writeSubmit {
-    right: 10px; /* Adjusted right position for smaller screens */
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  .write {
+    padding: 10px;
   }
 }

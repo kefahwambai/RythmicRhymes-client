@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useParams } from 'react-router-dom';
 import Topbar from "./components/topbar/Topbar";
 import Homepage from "./pages/homepage/Homepage";
 import Login from "./pages/login/Login";
@@ -7,6 +8,7 @@ import Post from "./components/post/Post";
 import Register from "./pages/register/Register";
 import Settings from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
+import SinglePost from "./components/singlepost/Singlepost";
 import Write from "./pages/write/Write";
 import Footer from "./components/footer/Footer";
 
@@ -15,6 +17,7 @@ function App() {
   console.log(storedUser)
   const initialUser = storedUser ? JSON.parse(storedUser) : null;
   const [user, setUser] = useState(initialUser);
+  const { id } = useParams();
 
   return (
     <div>
@@ -33,7 +36,7 @@ function App() {
             <Route path="/login" element={<Login setUser={setUser} />} />
           </>
         )}
-        <Route path="/post/:id" element={<Single />} />
+        <Route path="/posts/:id" element={<SinglePost postId={id} />} />
       </Routes>
       <Footer />
     </div>

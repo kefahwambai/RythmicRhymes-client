@@ -3,20 +3,17 @@ import { useState, useEffect } from "react";
 import "./singlepost.css";
 import { useParams } from "react-router-dom";
 
-
-
-export default function SinglePost({ postId }) {
+export default function SinglePost() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams(); 
-
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/posts/${postId}`);
+        const response = await fetch(`http://localhost:3000/posts/${id}`);
         const postData = await response.json();
-        console.log('Post Data:', postData); 
+        console.log('Post Data:', postData);
         setPost(postData);
       } catch (error) {
         console.error("Error fetching post data:", error);
@@ -24,10 +21,9 @@ export default function SinglePost({ postId }) {
         setLoading(false);
       }
     };
-    
 
     fetchPost();
-  }, [postId]);
+  }, [id]);
 
   if (loading) {
     return <p>Loading...</p>;

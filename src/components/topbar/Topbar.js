@@ -17,11 +17,12 @@ export default function Topbar({user, setUser}) {
       credentials: 'include',
      }).then((r) => {
         if (r.ok) {
-          setUser(null);
-          setMessage('User Logged Out!');
-          setTimeout(() => {
-            navigate('/');
-          }, 1234);          
+        localStorage.removeItem('user');
+        setUser(null);
+        setMessage('User Logged Out!');
+        setTimeout(() => {
+          navigate('/');
+      }, 1234);        
         }
       });
     }
@@ -53,11 +54,7 @@ export default function Topbar({user, setUser}) {
       <div className="topRight">
         {user ? (
           <Link className="link" to="/settings">
-            <img
-              className="topImg"
-              src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-            />
+            <img width="50" height="50" src="https://img.icons8.com/ios/50/user-male-circle--v1.png" alt="user-male-circle--v1"/>
           </Link>
         ) : (
           <ul className="topList">
@@ -72,8 +69,7 @@ export default function Topbar({user, setUser}) {
               </Link>
             </li>
           </ul>
-        )}
-        <i className="topSearchIcon fas fa-search"></i>
+        )}        
       </div>
     </div>
   );

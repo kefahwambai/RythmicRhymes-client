@@ -1,30 +1,35 @@
 .singlePost {
-  flex: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .singlePostWrapper {
+  max-width: 600px;
   padding: 20px;
-  padding-right: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
 }
 
 .singlePostImg {
   width: 100%;
-  height: auto; /* Allow the image to adjust its height */
-  max-height: 300px; /* Set a maximum height for larger screens */
-  border-radius: 5px;
-  object-fit: cover;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .singlePostTitle {
-  text-align: center;
-  margin: 10px;
-  font-size: 28px;
-  font-family: "Lora", sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .singlePostEdit {
-  float: right;
-  font-size: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .singlePostIcon {
@@ -32,52 +37,33 @@
   cursor: pointer;
 }
 
-.singlePostIcon:first-child {
-  color: teal;
-}
-
-.singlePostIcon:last-child {
-  color: tomato;
-}
-
 .singlePostInfo {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column; /* Adjusted to stack items on small screens */
-  font-size: 16px;
-  color: #be9656;
-  font-family: "Varela Round", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
 }
 
 .singlePostAuthor {
-  margin-top: 5px; /* Adjusted margin for better spacing */
-  margin-left: 0; /* Removed unnecessary left margin */
+  margin-left: 5px;
 }
 
 .singlePostDesc {
-  color: #666;
-  font-size: 18px;
-  line-height: 25px;
-}
-
-.singlePostDesc::first-letter {
-  margin-left: 0; /* Removed margin for better appearance */
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
 }
 
 /* Responsive Styles */
-@media (min-width: 768px) {
-  .singlePostImg {
-    max-height: 450px; /* Set a larger maximum height for larger screens */
-  }
-  
-  .singlePostInfo {
-    flex-direction: row; /* Adjusted to display items in a row on larger screens */
+@media (max-width: 768px) {
+  .singlePostWrapper {
+    max-width: 100%;
   }
 
-  .singlePostAuthor {
-    margin-top: 0; /* Resetting margin to default on larger screens */
-    margin-left: 5px;
+  .singlePostTitle {
+    font-size: 20px;
+  }
+
+  .singlePostDesc {
+    font-size: 14px;
   }
 }
