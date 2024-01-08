@@ -7,13 +7,15 @@ export default function Post() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("Fetching posts..."); 
     fetch("http://localhost:3000/posts")
       .then((res) => res.json())
-      .then((posts) => {
-          console.log(posts)
-        setPosts(posts);
+      .then((fetchedPosts) => {
+        console.log("Posts fetched:", fetchedPosts);
+        setPosts(fetchedPosts);
+        setLoading(false);
       });
-  }, []);
+  }, []); 
 
   return (
     <div>
