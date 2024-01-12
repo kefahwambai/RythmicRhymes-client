@@ -1,27 +1,65 @@
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import { useParams } from 'react-router-dom';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 import Topbar from "./components/topbar/Topbar";
 import Homepage from "./pages/homepage/Homepage";
 import Login from "./pages/login/Login";
 import Post from "./components/post/Post";
 import Register from "./pages/register/Register";
 import Settings from "./pages/settings/Settings";
-import Single from "./pages/single/Single";
 import SinglePost from "./components/singlepost/Singlepost";
 import Write from "./pages/write/Write";
 import Footer from "./components/footer/Footer";
 
 function App() {
-  const storedUser = localStorage.getItem('user');
-  console.log(storedUser)
-  const initialUser = storedUser ? JSON.parse(storedUser) : null;
-  const [user, setUser] = useState(initialUser);
+  
+  const navigate = useNavigate();
   const { id } = useParams();
+ 
+
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem('jwt');
+   
+    if (storedToken) {
+      const [, payloadBase64] = storedToken.split('.'); 
+      try {
+        const decodedPayload = atob(payloadBase64); 
+        const parsedPayload = JSON.parse(decodedPayload);
+        console.log(parsedPayload)
+        setUser(parsedPayload); 
+      } catch (error) {
+        console.error('Error parsing token payload:', error);
+      }
+    } else {
+      console.log("User not found");
+    }
+  }, []);
+  
+const handleLogout = async () => {
+  try {
+    const token = sessionStorage.getItem("jwt");
+    if (!token) {
+      console.error("No JWT token found in local storage.");
+      return;
+    }
+    sessionStorage.removeItem("jwt");
+    setUser(null);   
+    navigate("/");
+    console.log("Logout successful");
+  } catch (error) {
+    console.error("Logout failed", error);
+  }
+};
+
+  
+  
+  
 
   return (
     <div>
-      <Topbar user={user} setUser={setUser} />
+      <Topbar user={user} setUser={setUser} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/posts" element={<Post />} />
@@ -37,6 +75,7 @@ function App() {
           </>
         )}
         <Route path="/posts/:id" element={<SinglePost postId={id} />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
     </div>

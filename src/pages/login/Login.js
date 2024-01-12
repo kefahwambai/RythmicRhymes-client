@@ -14,11 +14,11 @@ export default function Login({ setUser }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
   
-    const formData = {      
+    const formData = {
       email: email,
       password: password,
     };
-
+  
     try {
       const response = await fetch('http://localhost:3000/login', {
         method: 'POST',
@@ -27,12 +27,12 @@ export default function Login({ setUser }) {
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
-        const user = await response.json();
-        console.log(user)
-        setUser(user);
-        localStorage.setItem('user', JSON.stringify(user));
+        const userData = await response.json();       
+        const token = userData.token;         
+        sessionStorage.setItem('jwt', token);
+        setUser(userData);  
         setMessage('Login successful!');
         setTimeout(() => {
           navigate('/');
@@ -46,6 +46,7 @@ export default function Login({ setUser }) {
       console.error(error);
     }
   };
+  
   
   return (
     <div className="login">

@@ -1,57 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Alert from '@mui/material/Alert';
 import "./topbar.css";
 
-export default function Topbar({user, setUser}) {
+export default function Topbar({handleLogout, user}) {
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
-
-  const topBar = document.querySelector('.top');
-  let lastScrollTop = 0;
-
-  window.addEventListener('scroll', () => {
-    const currentScrollTop = window.scrollY;
-
-    if (currentScrollTop > lastScrollTop) {
-      
-      topBar.classList.remove('blur');
-    } else {
-     
-      topBar.classList.add('blur');
-    }
-
-    lastScrollTop = currentScrollTop;
-  });
-
-
-
-  function handleLogout() {
-    fetch('http://localhost:3000/logout', {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-     }).then((r) => {
-        if (r.ok) {
-        localStorage.removeItem('user');
-        setUser(null);
-        setMessage('User Logged Out!');
-        setTimeout(() => {
-          navigate('/');
-      }, 1234);        
-        }
-      });
-    }
-
-  
-  
+ 
 
   return (
-    <div expanded={expand}  fixed="top"  expand="md" className={navColour ? "sticky" : "top"}>
+    <div fixed="top"  expand="md" className= "top">
       <div className="topLeft">    
       </div>
       <div className="topCenter">
@@ -72,6 +31,12 @@ export default function Topbar({user, setUser}) {
         </ul>
       </div>
       <div className="topRight">
+      {message && (<Alert severity='success' sx={{ mb:2 }}>{message}</Alert>)}
+      {/* {loginError && (
+        <Alert severity="error" sx={{ mb: 2 }}>
+          {loginError}
+        </Alert>
+      )} */}
         {user ? (
           <Link className="link" to="/settings">
             <img width="50" height="50" src="https://img.icons8.com/ios/50/user-male-circle--v1.png" alt="user-male-circle--v1"/>
