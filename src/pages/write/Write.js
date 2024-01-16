@@ -9,7 +9,7 @@ const Write = ({user}) => {
     event.preventDefault();
   
     const token = sessionStorage.getItem('jwt');
-    console.log("Here is the token", token)
+    // console.log("Here is the token", token)
   
     const postData = {
       title: title,

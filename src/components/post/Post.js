@@ -5,8 +5,6 @@ import "./post.css";
 
 export default function Post() {
   const [posts, setPosts] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [selectedPost, setSelectedPost] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:3000/posts")

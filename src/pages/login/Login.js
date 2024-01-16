@@ -31,9 +31,9 @@ export default function Login({ setUser }) {
   
       if (response.ok) {
         const userData = await response.json();    
-        console.log(userData)   
+        // console.log(userData)   
         const token = userData.token;  
-        console.log("Set Token", token)       
+        // console.log("Set Token", token)       
         sessionStorage.setItem('jwt', token);
         // const decodedToken = jwtDecode(token)
         // console.log(decodedToken)

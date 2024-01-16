@@ -15,6 +15,7 @@ function App() {
   
   const navigate = useNavigate();
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
  
 
   const [user, setUser] = useState(null)
@@ -31,8 +32,11 @@ function App() {
         setUser(parsedPayload); 
       } catch (error) {
         console.error('Error parsing token payload:', error);
+      } finally {
+        setLoading(false)
       }
     } else {
+      setLoading(false)
       console.log("User not found");
     }
   }, []);
@@ -53,7 +57,15 @@ function App() {
     }
   };
 
-  
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <p>In the Realm of Rhymes...</p>
+        <i className="loading-icon fas fa-hourglass-half"></i>
+      </div>
+    );
+  }
+
   
   
 
@@ -66,7 +78,7 @@ function App() {
         {user ? (
           <>
             <Route path="/write" element={<Write user={user} setUser={setUser}  />} />
-            <Route path="/settings" element={<Settings setUser={setUser} />} />
+            <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
           </>
         ) : (
           <>
@@ -74,7 +86,7 @@ function App() {
             <Route path="/login" element={<Login setUser={setUser} />} />
           </>
         )}
-        <Route path="/posts/:id" element={<SinglePost postId={id} />} />
+        <Route path="/posts/:id" element={<SinglePost postId={id} user={user} setUser={setUser} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />

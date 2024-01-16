@@ -1,20 +1,25 @@
 .settings {
   display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  height: 100vh; /* Make it take the full height of the viewport */
 }
 
 .settingsWrapper {
-  flex: 9;
+  flex: 1; /* Take the full width */
   padding: 20px;
+  max-width: 400px; /* Limit the maximum width */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  border-radius: 10px; /* Add border-radius for rounded corners */
 }
 
 .settingsTitle {
-  display: flex;
-  flex-direction: column; /* Adjusted for smaller screens */
+  text-align: center; /* Center the text */
 }
 
 .settingsTitleUpdate {
-  font-size: 30px;
-  margin-bottom: 10px; /* Adjusted margin for smaller screens */
+  font-size: 24px;
+  margin-bottom: 10px;
   color: lightcoral;
 }
 
@@ -25,70 +30,55 @@
 }
 
 .settingsForm {
-  display: flex;
-  flex-direction: column;
+  margin-top: 20px; /* Add space between title and form */
 }
 
 .settingsPP {
-  display: flex;
-  flex-direction: column; /* Adjusted for smaller screens */
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .settingsPP > img {
   height: 70px;
   width: 70px;
-  border-radius: 20px;
+  border-radius: 50%; /* Make the image fully round */
   object-fit: cover;
 }
 
 .settingsPPIcon {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
   border-radius: 50%;
-  margin-top: 10px; /* Adjusted margin for smaller screens */
+  margin-top: 10px;
   color: white;
   background-color: lightcoral;
   cursor: pointer;
 }
 
-.settingsPPButton:focus {
-  outline-style: none;
-}
-
 .settingsForm > label {
-  font-size: 20px;
-  margin-top: 20px;
+  font-size: 18px;
+  margin-top: 15px;
 }
 
-.settingsPPInput {
-  width: 100%; /* Adjusted width for smaller screens */
-}
-
+.settingsPPInput,
 .settingsForm > input {
-  color: gray;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: 30px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
   border: none;
   border-bottom: 1px solid lightgray;
 }
 
 .settingsSubmitButton {
-  align-self: center;
-  width: 150px;
+  width: 100%;
   border: none;
   border-radius: 10px;
   color: white;
   background-color: teal;
-  padding: 10px;
+  padding: 12px;
   margin-top: 20px;
   cursor: pointer;
   display: flex;
@@ -102,15 +92,20 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .settingsTitleUpdate {
-    font-size: 24px; /* Adjusted font size for smaller screens */
+  .settingsWrapper {
+    max-width: 100%; /* Take the full width for smaller screens */
   }
 
-  .settingsPPInput {
-    width: 100%; /* Full width for smaller screens */
+  .settingsTitleUpdate {
+    font-size: 20px;
+  }
+
+  .settingsPPIcon {
+    width: 25px;
+    height: 25px;
   }
 
   .settingsSubmitButton {
-    width: 100%; /* Full width for smaller screens */
+    padding: 10px; /* Adjust padding for smaller screens */
   }
 }
