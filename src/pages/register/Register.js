@@ -28,8 +28,7 @@ export default function Register({ setUser }) {
         name: name,
         email: email,
         password: password,
-        passwordConfirmation: passwordConfirmation,
-    
+        passwordConfirmation: passwordConfirmation,    
       
     };
     
@@ -44,12 +43,12 @@ export default function Register({ setUser }) {
     })
       .then((response) => response.json())
       .then((user) => {    
-        // console.log(user)    
+        
         if (user) {     
           setUser(user)                    
           setMessage('Account Created');
           setTimeout(() => {
-            navigate('/');
+            navigate('/login');
           }, 1234);
         } else {
           setSignupError(user.error);
@@ -73,7 +72,7 @@ export default function Register({ setUser }) {
             )}
       <form className="registerForm">
         <label>Username</label>
-        <input className="registerInput" type="text" placeholder="Enter your username..." id="name"  label="Username" name="name" autoComplete="name" value={name} required onChange={(e) => setName(e.target.value)} />
+        <input className="registerInput" type="text" placeholder="Enter your username..." id="name"  label="Username" value={name} required onChange={(e) => setName(e.target.value)} />
         <label>Email</label>
         <input className="registerInput" type="text" placeholder="Enter your email..." value={email} required onChange={(e) => setEmail(e.target.value)}/>
         <label>Password</label>

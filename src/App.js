@@ -27,7 +27,7 @@ function App() {
       try {
         const decodedPayload = atob(payloadBase64); 
         const parsedPayload = JSON.parse(decodedPayload);
-        console.log(parsedPayload)
+        
         setUser(parsedPayload); 
       } catch (error) {
         console.error('Error parsing token payload:', error);
@@ -37,21 +37,21 @@ function App() {
     }
   }, []);
   
-const handleLogout = async () => {
-  try {
-    const token = sessionStorage.getItem("jwt");
-    if (!token) {
-      console.error("No JWT token found in local storage.");
-      return;
+  const handleLogout = async () => {
+    try {
+      const token = sessionStorage.getItem("jwt");
+      if (!token) {
+        console.error("No JWT token found in local storage.");
+        return;
+      }
+      sessionStorage.removeItem("jwt");
+      setUser(null);   
+      navigate("/");
+      console.log("Logout successful");
+    } catch (error) {
+      console.error("Logout failed", error);
     }
-    sessionStorage.removeItem("jwt");
-    setUser(null);   
-    navigate("/");
-    console.log("Logout successful");
-  } catch (error) {
-    console.error("Logout failed", error);
-  }
-};
+  };
 
   
   
@@ -65,7 +65,7 @@ const handleLogout = async () => {
         <Route path="/posts" element={<Post />} />
         {user ? (
           <>
-            <Route path="/write" element={<Write user={user} />} />
+            <Route path="/write" element={<Write user={user} setUser={setUser}  />} />
             <Route path="/settings" element={<Settings setUser={setUser} />} />
           </>
         ) : (

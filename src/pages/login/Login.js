@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Alert from '@mui/material/Alert';
 import "./login.css";
 
+
 export default function Login({ setUser }) {
   const [email, setEmail] = useState('');
   const navigate = useNavigate(); 
@@ -29,10 +30,16 @@ export default function Login({ setUser }) {
       });
   
       if (response.ok) {
-        const userData = await response.json();       
-        const token = userData.token;         
+        const userData = await response.json();    
+        console.log(userData)   
+        const token = userData.token;  
+        console.log("Set Token", token)       
         sessionStorage.setItem('jwt', token);
+        // const decodedToken = jwtDecode(token)
+        // console.log(decodedToken)
         setUser(userData);  
+        setEmail("")
+        setPassword('')
         setMessage('Login successful!');
         setTimeout(() => {
           navigate('/');
