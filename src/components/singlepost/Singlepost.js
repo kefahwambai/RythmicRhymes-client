@@ -18,7 +18,7 @@ export default function SinglePost({ user }) {
       try {
         const response = await fetch(`http://localhost:3000/posts/${id}`);
         const postData = await response.json();
-        console.log('Post Data:', postData);
+        // console.log('Post Data:', postData);
         setPost(postData);
       } catch (error) {
         console.error("Error fetching post data:", error);
