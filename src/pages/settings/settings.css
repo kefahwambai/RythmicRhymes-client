@@ -1,20 +1,20 @@
 .settings {
   display: flex;
-  justify-content: center; /* Center the content horizontally */
-  align-items: center; /* Center the content vertically */
-  height: 100vh; /* Make it take the full height of the viewport */
+  justify-content: center; 
+  align-items: center;
+  height: 100vh; 
 }
 
 .settingsWrapper {
-  flex: 1; /* Take the full width */
+  flex: 1; 
   padding: 20px;
-  max-width: 400px; /* Limit the maximum width */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  border-radius: 10px; /* Add border-radius for rounded corners */
+  max-width: 400px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; 
 }
 
 .settingsTitle {
-  text-align: center; /* Center the text */
+  text-align: center; 
 }
 
 .settingsTitleUpdate {
@@ -30,7 +30,7 @@
 }
 
 .settingsForm {
-  margin-top: 20px; /* Add space between title and form */
+  margin-top: 20px; 
 }
 
 .settingsPP {
@@ -42,7 +42,7 @@
 .settingsPP > img {
   height: 70px;
   width: 70px;
-  border-radius: 50%; /* Make the image fully round */
+  border-radius: 50%; 
   object-fit: cover;
 }
 
@@ -90,10 +90,10 @@
   background-color: rgb(1, 114, 114);
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .settingsWrapper {
-    max-width: 100%; /* Take the full width for smaller screens */
+    max-width: 100%; 
   }
 
   .settingsTitleUpdate {
@@ -106,6 +106,6 @@
   }
 
   .settingsSubmitButton {
-    padding: 10px; /* Adjust padding for smaller screens */
+    padding: 10px; 
   }
 }

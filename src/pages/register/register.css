@@ -60,22 +60,22 @@
   border-radius: 10px;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .registerTitle {
-    font-size: 36px; /* Adjusted font size for smaller screens */
+    font-size: 36px; 
   }
 
   .registerForm > label {
-    margin: 8px 0; /* Adjusted margin for smaller screens */
+    margin: 8px 0; 
   }
 
   .registerInput {
-    padding: 8px; /* Adjusted padding for smaller screens */
+    padding: 8px; 
   }
 
   .registerButton,
   .registerLoginButton {
-    padding: 8px; /* Adjusted padding for smaller screens */
+    padding: 8px; 
   }
 }

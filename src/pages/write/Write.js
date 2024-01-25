@@ -6,8 +6,7 @@ const Write = ({user}) => {
   const [content, setContent] = useState('');
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-  
+    event.preventDefault();  
     const token = sessionStorage.getItem('jwt');
     // console.log("Here is the token", token)
   

@@ -22,24 +22,30 @@ function App() {
 
   useEffect(() => {
     const storedToken = sessionStorage.getItem('jwt');
-   
+
     if (storedToken) {
-      const [, payloadBase64] = storedToken.split('.'); 
+      const [, payloadBase64] = storedToken.split('.');
       try {
-        const decodedPayload = atob(payloadBase64); 
+        const decodedPayload = atob(payloadBase64);
         const parsedPayload = JSON.parse(decodedPayload);
-        
-        setUser(parsedPayload); 
+
+        const expirationTime = parsedPayload.exp * 1000; 
+        const currentTime = new Date().getTime();
+
+        if (currentTime > expirationTime) {
+          setUser(null);
+          sessionStorage.removeItem('jwt');
+          navigate('/login');
+        } else {
+          setUser(parsedPayload);
+        }
       } catch (error) {
         console.error('Error parsing token payload:', error);
-      } finally {
-        setLoading(false)
       }
     } else {
-      setLoading(false)
-      console.log("User not found");
+      console.log('User not found');
     }
-  }, []);
+  }, [navigate]);
   
   const handleLogout = async () => {
     try {

@@ -1,13 +1,13 @@
 .posts{
-    flex: 9;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
+  flex: 9;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
-    .posts {
-      margin: 10px; /* Adjust margin for smaller screens */
-    }
+  .posts {
+    margin: 10px; 
   }
+}

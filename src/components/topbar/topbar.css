@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .top {
     height: auto;

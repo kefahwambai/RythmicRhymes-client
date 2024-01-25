@@ -60,18 +60,18 @@
   border-radius: 10px;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .loginTitle {
-    font-size: 36px; /* Adjusted font size for smaller screens */
+    font-size: 36px;
   }
 
   .loginForm > label {
-    margin: 8px 0; /* Adjusted margin for smaller screens */
+    margin: 8px 0;
   }
 
   .loginInput {
-    padding: 8px; /* Adjusted padding for smaller screens */
+    padding: 8px; 
   }
 
   .loginButton,

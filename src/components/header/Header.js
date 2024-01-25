@@ -3,11 +3,7 @@ import header from "../../Assets/header.jpeg"
 
 export default function Header() {
   return (
-    <div className="header">
-      <div className="headerTitles">
-        <span className="headerTitleSm">Rythmic</span>
-        <span className="headerTitleLg">Ryhmes</span>
-      </div>
+    <div className="header">    
       <img
         className="headerImg"
         src= {header}

@@ -12,7 +12,6 @@ export default function Register({ setUser }) {
   const [passwordConfirmation, setPasswordConfirmation] = useState(''); 
   const [signupError, setSignupError] = useState('');
   const navigate = useNavigate();
-
   const [message, setMessage] = useState('')
  
 

@@ -1,4 +1,4 @@
-/* Default styles */
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -39,7 +39,7 @@
   cursor: pointer;
 }
 
-/* Responsive styles */
+
 @media (max-width: 768px) {
   .sidebar {
     width: 140px;
