@@ -63,14 +63,14 @@ function App() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <p>In the Realm of Rhymes...</p>
-        <i className="loading-icon fas fa-hourglass-half"></i>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="loading-container">
+  //       <p>In the Realm of Rhymes...</p>
+  //       <i className="loading-icon fas fa-hourglass-half"></i>
+  //     </div>
+  //   );
+  // }
 
   
   
